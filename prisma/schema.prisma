@@ -12,8 +12,8 @@ model TestTable {
 }
 
 model TestUser {
-  id    Int    @id @default(autoincrement())
-  name  String
-  age   Int
+  id   Int    @id @default(autoincrement())
+  name String
+  age  Int
   // ... other fields ...
 }
