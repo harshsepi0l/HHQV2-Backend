@@ -4,7 +4,7 @@
 
 To get started:
 -- Use the CLI and make sure to have Node installed on your system
--- tpye ' npx install prisma ' 
+-- type ' npx install prisma ' 
 -- if it asks you to update to the latest verison, try it (does not work most of the time).
 
 DB CLI:
