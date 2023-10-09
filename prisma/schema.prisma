@@ -4,21 +4,8 @@ generator client {
 
 datasource db {
   provider     = "mysql"
-  url          = env("DATABASE_URL")
+  url          = env("DB_URL")
   relationMode = "prisma"
-}
-
-model TestTable {
-  idTestTable Int  @id
-  user        Int?
-
-  @@index([user], map: "user_idx")
-}
-
-model TestUser {
-  id   Int    @id @default(autoincrement())
-  name String
-  age  Int
 }
 
 model course {
