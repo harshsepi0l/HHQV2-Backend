@@ -8,12 +8,90 @@ datasource db {
 }
 
 model TestTable {
-  idTestTable Int @id
+  idTestTable Int  @id
+  user        Int?
+
+  @@index([user], map: "user_idx")
 }
 
 model TestUser {
   id   Int    @id @default(autoincrement())
   name String
   age  Int
-  // ... other fields ...
+}
+
+model course {
+  course_id     String  @id @unique(map: "course_id_UNIQUE") @db.VarChar(20)
+  name          String? @db.VarChar(45)
+  title         String? @db.VarChar(45)
+  credit_type   String? @db.VarChar(5)
+  description   String? @db.LongText
+  subject_id    String? @db.VarChar(10)
+  number        String? @db.VarChar(10)
+  department_id String? @db.VarChar(10)
+
+  @@index([department_id], map: "department_idx")
+  @@index([subject_id], map: "subject_idx")
+}
+
+/// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
+model department {
+  department_id String  @id @unique(map: "department_id_UNIQUE") @db.VarChar(10)
+  description   String? @db.VarChar(45)
+}
+
+model enrollment {
+  offering_id String  @db.VarChar(20)
+  student_id  String  @db.VarChar(20)
+  grade       String? @db.VarChar(45)
+
+  @@id([offering_id, student_id])
+}
+
+/// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
+model level {
+  level_id    String  @id @unique(map: "level_id_UNIQUE") @db.VarChar(10)
+  description String? @db.VarChar(45)
+}
+
+model offering {
+  offering_id     String    @id @unique(map: "offering_id_UNIQUE") @db.VarChar(20)
+  name            String?   @db.VarChar(150)
+  comments        String?   @db.MediumText
+  status          String?   @db.VarChar(10)
+  term_id         String?   @db.VarChar(8)
+  start_time      DateTime? @db.Time(0)
+  weekdays        String?   @db.VarChar(30)
+  capactiy        Int?
+  active_students Int?
+  section_number  String?   @db.VarChar(10)
+  faculty_id      String?   @db.VarChar(50)
+  building        String?   @db.VarChar(45)
+  room            String?   @db.VarChar(45)
+}
+
+model offering_level {
+  offering_id String @db.VarChar(20)
+  level_id    String @db.VarChar(10)
+
+  @@id([offering_id, level_id])
+}
+
+model student {
+  student_id String  @id @unique(map: "student_id_UNIQUE") @db.VarChar(20)
+  name       String? @db.VarChar(50)
+  year       String? @db.VarChar(45)
+  transfer   String? @db.VarChar(1)
+}
+
+/// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
+model subject {
+  subject_id  String  @id @unique(map: "subject_id_UNIQUE") @db.VarChar(10)
+  description String? @db.VarChar(45)
+}
+
+model term {
+  term_id    String    @id @unique(map: "term_id_UNIQUE") @db.VarChar(8)
+  start_date DateTime? @db.Date
+  end_date   DateTime? @db.Date
 }
