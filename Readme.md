@@ -8,4 +8,6 @@ If your using studio then run these CLI: -- ' npx/npm prisma generate ' to gener
 
 -- 'npx/npm prisma studio ' to visually see the models in a localhost
 
+-- Please look at the notion on how to make the .env file
+
 Happy Coding!
