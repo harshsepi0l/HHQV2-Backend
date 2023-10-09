@@ -12,4 +12,8 @@ DB CLI (Use only if we need to pull/push new tables):
 -- ' npx/npm prisma db push ' to push all the tables from the prisma client (outrospection).
 -- ' npx/npm prisma help ' to get help for the CLI
 
+-- ' npx/npm prisma generate ' to generate the models for the client
+
+-- 'npx/npm prisma studio ' to visually see the models in a localhost
+
 Happy Coding!
