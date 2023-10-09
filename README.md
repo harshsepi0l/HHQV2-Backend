@@ -7,7 +7,7 @@ To get started:
 -- type ' npx prisma install '
 -- if it asks you to update to the latest verison, try it (does not work most of the time).
 
-DB CLI:
+DB CLI (Use only if we need to pull/push new tables):
 -- ' npx/npm prisma db pull ' to pull all the tables from the database (introspection).
 -- ' npx/npm prisma db push ' to push all the tables from the prisma client (outrospection).
 -- ' npx/npm prisma help ' to get help for the CLI
