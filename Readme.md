@@ -1,4 +1,5 @@
 Backend for Hornet HQ Version.2 (Prototype)
+(Please ask one of the Backend Members before changing anything)
 
 To get started: -- Use the CLI and make sure to have Node installed on your system -- type ' npx prisma install ' -- if it asks you to update to the latest verison, try it (does not work most of the time).
 
