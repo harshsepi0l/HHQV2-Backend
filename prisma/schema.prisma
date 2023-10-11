@@ -1,3 +1,6 @@
+//delete this lol
+// nah dont
+
 generator client {
   provider = "prisma-client-js"
 }
