@@ -1,5 +1,3 @@
-//Rebased to Main
-
 generator client {
   provider = "prisma-client-js"
 }
