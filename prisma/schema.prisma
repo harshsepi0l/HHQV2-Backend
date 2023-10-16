@@ -9,17 +9,14 @@ datasource db {
 }
 
 model course {
-  course_id     String  @id @unique(map: "course_id_UNIQUE") @db.VarChar(20)
-  name          String? @db.VarChar(45)
-  title         String? @db.VarChar(45)
+  course_id     String  @id @unique(map: "course_id_UNIQUE") @db.VarChar(50)
+  title         String? @db.VarChar(150)
   credit_type   String? @db.VarChar(5)
-  description   String? @db.LongText
-  subject_id    String? @db.VarChar(10)
-  number        String? @db.VarChar(10)
-  department_id String? @db.VarChar(10)
-
-  @@index([department_id], map: "department_idx")
-  @@index([subject_id], map: "subject_idx")
+  description   Bytes?  @db.Blob
+  subject_id    String? @db.VarChar(40)
+  number        String? @db.VarChar(20)
+  department_id String? @db.VarChar(40)
+  division_id   String? @db.VarChar(30)
 }
 
 /// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
@@ -43,19 +40,21 @@ model level {
 }
 
 model offering {
-  offering_id     String    @id @unique(map: "offering_id_UNIQUE") @db.VarChar(20)
-  name            String?   @db.VarChar(150)
-  comments        String?   @db.MediumText
-  status          String?   @db.VarChar(10)
-  term_id         String?   @db.VarChar(8)
-  start_time      DateTime? @db.Time(0)
-  weekdays        String?   @db.VarChar(30)
+  offering_id     String  @id @unique(map: "offering_id_UNIQUE") @db.VarChar(20)
+  course_id       String? @db.VarChar(20)
+  comments        String? @db.VarChar(1000)
+  status          String? @db.VarChar(10)
+  credit          Float?  @db.Float
+  term_id         String? @db.VarChar(8)
+  start_time      String? @db.VarChar(10)
+  end_time        String? @db.VarChar(10)
+  weekdays        String? @db.VarChar(30)
   capactiy        Int?
   active_students Int?
-  section_number  String?   @db.VarChar(10)
-  faculty_id      String?   @db.VarChar(50)
-  building        String?   @db.VarChar(45)
-  room            String?   @db.VarChar(45)
+  section_number  String? @db.VarChar(10)
+  faculty_name    String? @db.VarChar(50)
+  building        String? @db.VarChar(45)
+  room            String? @db.VarChar(45)
 }
 
 model offering_level {
@@ -82,4 +81,9 @@ model term {
   term_id    String    @id @unique(map: "term_id_UNIQUE") @db.VarChar(8)
   start_date DateTime? @db.Date
   end_date   DateTime? @db.Date
+}
+
+model division {
+  division_id String  @id @unique(map: "division_id_UNIQUE") @db.VarChar(10)
+  description String? @db.VarChar(50)
 }
