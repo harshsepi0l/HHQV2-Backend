@@ -28,28 +28,33 @@ const CourseTable: React.FC = () => {
   }, []);
 
   return (
-    <table>
-      <thead>
-        <tr>
-          <th>ID</th>
-          <th>Title</th>
-          <th>Credit Type</th>
-          <th>Description</th>
-          {/* ... other headers */}
-        </tr>
-      </thead>
-      <tbody>
-        {courses.map((course) => (
-          <tr key={course.course_id}>
-            <td>{course.course_id}</td>
-            <td>{course.title}</td>
-            <td>{course.credit_type}</td>
-            <td>{course.description}</td>
-            {/* ... other fields */}
-          </tr>
-        ))}
-      </tbody>
-    </table>
+    <div className="CourseTable">
+      <header className="CourseTable-Header">
+        <h1>Courses</h1>
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Title</th>
+              <th>Credit Type</th>
+              <th>Description</th>
+              {/* ... other headers */}
+            </tr>
+          </thead>
+          <tbody>
+            {courses.map((course) => (
+              <tr key={course.course_id}>
+                <td>{course.course_id}</td>
+                <td>{course.title}</td>
+                <td>{course.credit_type}</td>
+                <td>{course.description}</td>
+                {/* ... other fields */}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </header>
+    </div>
   );
 };
 
