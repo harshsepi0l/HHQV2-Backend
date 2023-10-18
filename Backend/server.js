@@ -17,6 +17,16 @@ app.get("/courses", async (req, res) => {
   }
 });
 
+app.get("/student", async (req, res) => {
+  try {
+    const student = await prisma.student.findMany();
+    res.json(student);
+  } catch (error) {
+    console.error("Error fetching student table:", error);
+    res.status(500).json({ error: "Database error" });
+  }
+});
+
 app.listen(3001, () => {
   console.log("Server is running on http://localhost:3001");
 });
