@@ -12,7 +12,7 @@ model course {
   course_id     String  @id @unique(map: "course_id_UNIQUE") @db.VarChar(50)
   title         String? @db.VarChar(150)
   credit_type   String? @db.VarChar(5)
-  description   Bytes?  @db.Blob
+  description   String? @db.VarChar(400)
   subject_id    String? @db.VarChar(40)
   number        String? @db.VarChar(20)
   department_id String? @db.VarChar(40)
