@@ -17,7 +17,9 @@ const CourseTable: React.FC = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get("http://localhost:3001/courses");
+        const response = await axios.get(
+          "https://hhqv2backend.vercel.app/api/course"
+        );
         setCourses(response.data);
       } catch (error) {
         console.error("Failed to fetch courses:", error);
