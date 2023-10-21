@@ -2,7 +2,6 @@ import React from "react";
 import logo from "./logo.svg";
 import "./App.css";
 import CourseTable from "./CourseTable";
-import StudentTable from  "./StudentTable";
 
 function App() {
   //   return (
@@ -27,7 +26,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <StudentTable />
+        <CourseTable />
       </header>
     </div>
   );
