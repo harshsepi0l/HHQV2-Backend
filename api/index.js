@@ -7,7 +7,7 @@ const app = express();
 
 app.use(cors());
 
-app.get("/courses", async (req, res) => {
+app.get("/course", async (req, res) => {
   try {
     const courses = await prisma.course.findMany();
     res.json(courses);
