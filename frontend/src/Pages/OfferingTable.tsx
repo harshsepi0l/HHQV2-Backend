@@ -4,6 +4,7 @@
 import Table from "@mui/joy/Table";
 import Sheet from "@mui/joy/Sheet";
 import Button from "@mui/joy/Button";
+import Divider from "@mui/joy/Divider";
 
 import React, { useState, useEffect } from "react";
 import axios from "axios";
@@ -68,7 +69,7 @@ const OfferingTable: React.FC = () => {
             },
           }}
         >
-          <ul>
+          <Divider sx={{ "--Divider-childPosition": "50%" }}>
             <Button variant="soft" component="a" href="/students">
               Students
             </Button>
@@ -78,7 +79,10 @@ const OfferingTable: React.FC = () => {
             <Button variant="soft" component="a" href="/offerings">
               Offerings
             </Button>
-          </ul>
+            <Button variant="soft" component="a" href="/homepage">
+              Home
+            </Button>
+          </Divider>
           <h1>Offerings</h1>
 
           <Table
