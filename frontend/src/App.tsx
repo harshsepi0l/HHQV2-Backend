@@ -15,11 +15,11 @@ function App() {
         <header className="App-header">
           <nav>
             <ul>
-              <Button variant="soft" component="a" href="/StudentTable">
-                <Link to="/students">Student</Link>
+              <Button variant="soft" component="a" href="/students">
+                Students
               </Button>
-              <Button variant="soft" component="a" href="/CoursesTable">
-                <Link to="/courses">Courses</Link>
+              <Button variant="soft" component="a" href="/courses">
+                Courses
               </Button>
             </ul>
           </nav>
