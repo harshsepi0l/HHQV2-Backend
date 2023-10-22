@@ -49,7 +49,7 @@ model offering {
   start_time      String? @db.VarChar(10)
   end_time        String? @db.VarChar(10)
   weekdays        String? @db.VarChar(30)
-  capactiy        Int?
+  capacity        Int?
   active_students Int?
   section_number  String? @db.VarChar(10)
   faculty_name    String? @db.VarChar(50)
