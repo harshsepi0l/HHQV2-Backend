@@ -16,19 +16,7 @@ function App() {
     <Router>
       <div className="App">
         <header className="App-header">
-          <nav>
-            <ul>
-              <Button variant="soft" component="a" href="/students">
-                Students
-              </Button>
-              <Button variant="soft" component="a" href="/courses">
-                Courses
-              </Button>
-              <Button variant="soft" component="a" href="/offerings">
-                Offerings
-              </Button>
-            </ul>
-          </nav>
+         
 
           <Routes>
             <Route path="/students" element={<StudentTable />} />
