@@ -53,13 +53,13 @@ const OfferingTable: React.FC = () => {
             <tr>
               <th style={{ width: "5%" }}>Offering ID</th>
               <th style={{ width: "5%" }}>Course ID</th>
-              <th style={{ width: "5%" }}>Comments</th>
-              <th style={{ width: "5%" }}>Status</th>
-              <th style={{ width: "5%" }}>Credit</th>
-              <th style={{ width: "5%" }}>Term ID</th>
+              <th style={{ width: "15%" }}>Comments</th>
+              <th style={{ width: "3%" }}>Status</th>
+              <th style={{ width: "3%" }}>Credit</th>
+              <th style={{ width: "3%" }}>Term ID</th>
               <th style={{ width: "5%" }}>Start Time</th>
-              <th style={{ width: "5%" }}>End_time</th>
-              <th style={{ width: "5%" }}>Weekdays</th>
+              <th style={{ width: "5%" }}>End Time</th>
+              <th style={{ width: "3%" }}>Weekdays</th>
               <th style={{ width: "5%" }}>Capacity</th>
               <th style={{ width: "5%" }}>Active Students</th>
               <th style={{ width: "5%" }}>Section Number</th>
@@ -72,6 +72,7 @@ const OfferingTable: React.FC = () => {
           <tbody>
             {offerings.map((offering) => (
               <tr key={offering.offering_id}>
+                <td> {offering.offering_id}</td>
                 <td>{offering.course_id}</td>
                 <td>{offering.comments}</td>
                 <td>{offering.status}</td>
