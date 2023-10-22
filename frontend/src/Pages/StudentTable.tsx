@@ -1,4 +1,7 @@
 // StudentTable.tsx
+//For design
+import Table from "@mui/joy/Table";
+import Sheet from "@mui/joy/Sheet";
 
 import React, { useState, useEffect } from "react";
 import axios from "axios";
@@ -33,7 +36,7 @@ const StudentTable: React.FC = () => {
     <div className="StudentTable">
       <header className="StudentTable-Header">
         <h1>Students</h1>
-        <table>
+        <Table hoverRow borderAxis="both" size="sm" stickyHeader variant="soft">
           <thead>
             <tr>
               <th>ID</th>
@@ -46,6 +49,7 @@ const StudentTable: React.FC = () => {
           <tbody>
             {students.map((student) => (
               <tr key={student.student_id}>
+                <td>{student.student_id}</td>
                 <td>{student.name}</td>
                 <td>{student.year}</td>
                 <td>{student.transfer}</td>
@@ -53,7 +57,7 @@ const StudentTable: React.FC = () => {
               </tr>
             ))}
           </tbody>
-        </table>
+        </Table>
       </header>
     </div>
   );

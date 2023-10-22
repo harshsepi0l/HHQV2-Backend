@@ -1,5 +1,9 @@
 // CourseTable.tsx
 
+//For design
+import Table from "@mui/joy/Table";
+import Sheet from "@mui/joy/Sheet";
+
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
@@ -33,12 +37,12 @@ const CourseTable: React.FC = () => {
     <div className="CourseTable">
       <header className="CourseTable-Header">
         <h1>Courses</h1>
-        <table>
+        <Table hoverRow borderAxis="both" size="sm" stickyHeader variant="soft">
           <thead>
             <tr>
-              <th>ID</th>
-              <th>Title</th>
-              <th>Credit Type</th>
+              <th style={{ width: "5%" }}>ID</th>
+              <th style={{ width: "20%" }}>Title</th>
+              <th style={{ width: "5%" }}>Credit Type</th>
               <th>Description</th>
               {/* ... other headers */}
             </tr>
@@ -54,7 +58,7 @@ const CourseTable: React.FC = () => {
               </tr>
             ))}
           </tbody>
-        </table>
+        </Table>
       </header>
     </div>
   );
