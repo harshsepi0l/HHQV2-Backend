@@ -37,7 +37,7 @@ const CourseTable: React.FC = () => {
     <div className="CourseTable">
       <header className="CourseTable-Header">
         <h1>Courses</h1>
-        <Table hoverRow borderAxis="both" size="sm" stickyHeader variant="soft">
+        <Table hoverRow borderAxis="both" size="md" stickyHeader variant="soft">
           <thead>
             <tr>
               <th style={{ width: "5%" }}>ID</th>
