@@ -12,7 +12,7 @@ model course {
   course_id     String  @id @unique(map: "course_id_UNIQUE") @db.VarChar(50)
   title         String? @db.VarChar(150)
   credit_type   String? @db.VarChar(5)
-  description   String? @db.VarChar(400)
+  description   String? @db.Text
   subject_id    String? @db.VarChar(40)
   number        String? @db.VarChar(20)
   department_id String? @db.VarChar(40)
@@ -41,6 +41,7 @@ model level {
 
 model offering {
   offering_id     String  @id @unique(map: "offering_id_UNIQUE") @db.VarChar(20)
+  name            String? @db.VarChar(45)
   course_id       String? @db.VarChar(20)
   comments        String? @db.VarChar(1000)
   status          String? @db.VarChar(10)
