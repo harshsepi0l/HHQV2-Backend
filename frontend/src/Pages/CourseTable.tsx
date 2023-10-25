@@ -83,10 +83,10 @@ const CourseTable: React.FC = () => {
             <caption> Courses Table</caption>
             <thead>
               <tr>
-                <th style={{ width: "5%" }}>ID</th>
-                <th style={{ width: "20%" }}>Title</th>
-                <th style={{ width: "5%" }}>Credit Type</th>
-                <th>Description</th>
+                <th style={{ width: "5%", backgroundColor: "black"}}>ID</th>
+                <th style={{ width: "20%", backgroundColor: "black" }}>Title</th>
+                <th style={{ width: "5%", backgroundColor: "black" }}>Credit Type</th>
+                <th style = {{backgroundColor: "black"}}> Description</th>
                 {/* ... other headers */}
               </tr>
             </thead>

@@ -82,10 +82,10 @@ const StudentTable: React.FC = () => {
             <caption> Students Table</caption>
             <thead>
               <tr>
-                <th>ID</th>
-                <th>Name</th>
-                <th>Year</th>
-                <th>Transfer</th>
+                <th style={{backgroundColor: "black"}}>ID</th>
+                <th style={{backgroundColor: "black"}}>Name</th>
+                <th style={{backgroundColor: "black"}}>Year</th>
+                <th style={{backgroundColor: "black"}}>Transfer</th>
                 {/* ... other headers */}
               </tr>
             </thead>

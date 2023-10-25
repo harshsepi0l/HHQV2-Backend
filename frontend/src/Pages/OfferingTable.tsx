@@ -95,21 +95,21 @@ const OfferingTable: React.FC = () => {
             <caption> Offerings Table</caption>
             <thead>
               <tr>
-                <th style={{ width: "7%" }}>Offering ID</th>
-                <th style={{ width: "5%" }}>Course ID</th>
-                <th style={{ width: "15%" }}>Comments</th>
-                <th style={{ width: "3%" }}>Status</th>
-                <th style={{ width: "3%" }}>Credit</th>
-                <th style={{ width: "5%" }}>Term ID</th>
-                <th style={{ width: "5%" }}>Start Time</th>
-                <th style={{ width: "5%" }}>End Time</th>
-                <th style={{ width: "5%" }}>Weekdays</th>
-                <th style={{ width: "5%" }}>Capacity</th>
-                <th style={{ width: "5%" }}>Active Students</th>
-                <th style={{ width: "5%" }}>Section Number</th>
-                <th style={{ width: "10%" }}>Faculty Name</th>
-                <th style={{ width: "5%" }}>Building</th>
-                <th style={{ width: "5%" }}>Room</th>
+                <th style={{ width: "7%", backgroundColor: "black" }}>Offering ID</th>
+                <th style={{ width: "5%", backgroundColor: "black" }}>Course ID</th>
+                <th style={{ width: "15%", backgroundColor: "black" }}>Comments</th>
+                <th style={{ width: "3%", backgroundColor: "black" }}>Status</th>
+                <th style={{ width: "3%", backgroundColor: "black" }}>Credit</th>
+                <th style={{ width: "5%", backgroundColor: "black" }}>Term ID</th>
+                <th style={{ width: "5%", backgroundColor: "black" }}>Start Time</th>
+                <th style={{ width: "5%", backgroundColor: "black" }}>End Time</th>
+                <th style={{ width: "5%", backgroundColor: "black" }}>Weekdays</th>
+                <th style={{ width: "5%", backgroundColor: "black" }}>Capacity</th>
+                <th style={{ width: "5%", backgroundColor: "black" }}>Active Students</th>
+                <th style={{ width: "5%", backgroundColor: "black" }}>Section Number</th>
+                <th style={{ width: "10%", backgroundColor: "black" }}>Faculty Name</th>
+                <th style={{ width: "5%", backgroundColor: "black" }}>Building</th>
+                <th style={{ width: "5%", backgroundColor: "black" }}>Room</th>
                 {/* ... other headers */}
               </tr>
             </thead>
