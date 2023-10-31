@@ -9,6 +9,11 @@ import Divider from "@mui/joy/Divider";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
+type OfferingLevel = {
+  offering_id: string;
+  level_id: string;
+};
+
 type Offering = {
   offering_id: string;
   course_id: string;
@@ -25,6 +30,7 @@ type Offering = {
   faculty_name: string;
   building: string;
   room: string;
+  offering_level: OfferingLevel[]; //this line is to invoke a link to the other table.
   // ... other fields
 };
 
@@ -95,21 +101,52 @@ const OfferingTable: React.FC = () => {
             <caption> Offerings Table</caption>
             <thead>
               <tr>
-                <th style={{ width: "7%", backgroundColor: "black" }}>Offering ID</th>
-                <th style={{ width: "5%", backgroundColor: "black" }}>Course ID</th>
-                <th style={{ width: "15%", backgroundColor: "black" }}>Comments</th>
-                <th style={{ width: "3%", backgroundColor: "black" }}>Status</th>
-                <th style={{ width: "3%", backgroundColor: "black" }}>Credit</th>
-                <th style={{ width: "5%", backgroundColor: "black" }}>Term ID</th>
-                <th style={{ width: "5%", backgroundColor: "black" }}>Start Time</th>
-                <th style={{ width: "5%", backgroundColor: "black" }}>End Time</th>
-                <th style={{ width: "5%", backgroundColor: "black" }}>Weekdays</th>
-                <th style={{ width: "5%", backgroundColor: "black" }}>Capacity</th>
-                <th style={{ width: "5%", backgroundColor: "black" }}>Active Students</th>
-                <th style={{ width: "5%", backgroundColor: "black" }}>Section Number</th>
-                <th style={{ width: "10%", backgroundColor: "black" }}>Faculty Name</th>
-                <th style={{ width: "5%", backgroundColor: "black" }}>Building</th>
+                <th style={{ width: "7%", backgroundColor: "black" }}>
+                  Offering ID
+                </th>
+                <th style={{ width: "5%", backgroundColor: "black" }}>
+                  Course ID
+                </th>
+                <th style={{ width: "15%", backgroundColor: "black" }}>
+                  Comments
+                </th>
+                <th style={{ width: "3%", backgroundColor: "black" }}>
+                  Status
+                </th>
+                <th style={{ width: "3%", backgroundColor: "black" }}>
+                  Credit
+                </th>
+                <th style={{ width: "5%", backgroundColor: "black" }}>
+                  Term ID
+                </th>
+                <th style={{ width: "5%", backgroundColor: "black" }}>
+                  Start Time
+                </th>
+                <th style={{ width: "5%", backgroundColor: "black" }}>
+                  End Time
+                </th>
+                <th style={{ width: "5%", backgroundColor: "black" }}>
+                  Weekdays
+                </th>
+                <th style={{ width: "5%", backgroundColor: "black" }}>
+                  Capacity
+                </th>
+                <th style={{ width: "5%", backgroundColor: "black" }}>
+                  Active Students
+                </th>
+                <th style={{ width: "5%", backgroundColor: "black" }}>
+                  Section Number
+                </th>
+                <th style={{ width: "10%", backgroundColor: "black" }}>
+                  Faculty Name
+                </th>
+                <th style={{ width: "5%", backgroundColor: "black" }}>
+                  Building
+                </th>
                 <th style={{ width: "5%", backgroundColor: "black" }}>Room</th>
+                <th style={{ width: "5%", backgroundColor: "black" }}>
+                  Level ID (FQ)
+                </th>
                 {/* ... other headers */}
               </tr>
             </thead>
@@ -131,7 +168,11 @@ const OfferingTable: React.FC = () => {
                   <td>{offering.faculty_name}</td>
                   <td>{offering.building}</td>
                   <td>{offering.room}</td>
-                  {/* ... other fields */}
+                  <td>
+                    {offering.offering_level.map((level) => (
+                      <tr key={level.level_id}>{level.level_id}</tr> // Display each level_id from reference
+                    ))}
+                  </td>
                 </tr>
               ))}
             </tbody>
