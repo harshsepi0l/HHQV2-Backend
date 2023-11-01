@@ -13,7 +13,12 @@ module.exports = async (req, res) => {
   }
 
   try {
-    const courses = await prisma.course.findMany();
+    const courses = await prisma.course.findMany({
+      include: {
+        offering: true, //"Foreign Key" or reference we gave to the table
+      },
+    });
+
     res.json(courses);
   } catch (error) {
     console.error("Error fetching courses:", error);

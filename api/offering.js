@@ -16,7 +16,7 @@ module.exports = async (req, res) => {
     const offerings = await prisma.offering.findMany({
       include: {
         offering_level: true, //"Foreign Key" or reference we gave to the table
-        enrollment: true,
+        enrollment: true, //"Foreign Key" or reference we gave to the table
       },
     });
     res.json(offerings);
