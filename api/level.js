@@ -1,8 +1,8 @@
 /*
-API ENDPOINT FOR LEVEL  TABLE
+API ENDPOINT FOR LEVEL TABLE
 Holds:
 level
--- enrollment (foreign key)
+-- offering_level (foreign key)
 */
 
 const { PrismaClient } = require("@prisma/client");
@@ -22,7 +22,7 @@ module.exports = async (req, res) => {
   try {
     const levels = await prisma.level.findMany({
       include: {
-        enrollment: true, //"Foreign Key" or reference we gave to the table
+        offering_level: true, //"Foreign Key" or reference we gave to the table
       },
     });
 
