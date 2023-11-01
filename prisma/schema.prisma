@@ -40,29 +40,32 @@ model level {
 }
 
 model offering {
-  offering_id     String  @id @unique(map: "offering_id_UNIQUE") @db.VarChar(20)
-  name            String? @db.VarChar(45)
-  course_id       String? @db.VarChar(20)
-  comments        String? @db.VarChar(1000)
-  status          String? @db.VarChar(10)
-  credit          Float?  @db.Float
-  term_id         String? @db.VarChar(8)
-  start_time      String? @db.VarChar(10)
-  end_time        String? @db.VarChar(10)
-  weekdays        String? @db.VarChar(30)
+  offering_id     String           @id @unique(map: "offering_id_UNIQUE") @db.VarChar(20)
+  name            String?          @db.VarChar(45)
+  course_id       String?          @db.VarChar(20)
+  comments        String?          @db.VarChar(1000)
+  status          String?          @db.VarChar(10)
+  credit          Float?           @db.Float
+  term_id         String?          @db.VarChar(8)
+  start_time      String?          @db.VarChar(10)
+  end_time        String?          @db.VarChar(10)
+  weekdays        String?          @db.VarChar(30)
   capacity        Int?
   active_students Int?
-  section_number  String? @db.VarChar(10)
-  faculty_name    String? @db.VarChar(50)
-  building        String? @db.VarChar(45)
-  room            String? @db.VarChar(45)
+  section_number  String?          @db.VarChar(10)
+  faculty_name    String?          @db.VarChar(50)
+  building        String?          @db.VarChar(45)
+  room            String?          @db.VarChar(45)
+  offering_level  offering_level[]
 }
 
 model offering_level {
-  offering_id String @db.VarChar(20)
-  level_id    String @db.VarChar(10)
+  offering_id String   @db.VarChar(20)
+  level_id    String   @db.VarChar(10)
+  offering    offering @relation(fields: [offering_id], references: [offering_id])
 
   @@id([offering_id, level_id])
+  @@index([offering_id])
 }
 
 model student {
