@@ -10,6 +10,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 type OfferingLevel = {
+  //Contents of invoked type
   offering_id: string;
   level_id: string;
 };
