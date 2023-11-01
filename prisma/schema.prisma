@@ -19,10 +19,8 @@ model course {
   division_id   String?     @db.VarChar(30)
   offering      offering[]
   department    department? @relation(fields: [department_id], references: [department_id])
-
-  subject subject? @relation(fields: [subject_id], references: [subject_id])
-
-  division division? @relation(fields: [division_id], references: [division_id])
+  subject       subject?    @relation(fields: [subject_id], references: [subject_id])
+  division      division?   @relation(fields: [division_id], references: [division_id])
 
   @@index([department_id])
   @@index([subject_id])
