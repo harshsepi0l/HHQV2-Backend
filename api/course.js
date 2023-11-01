@@ -1,3 +1,10 @@
+/*
+API ENDPOINT FOR COURSE TABLE
+Holds:
+course
+-- offering (foreign key)
+*/
+
 const { PrismaClient } = require("@prisma/client");
 const prisma = new PrismaClient();
 

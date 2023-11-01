@@ -1,3 +1,11 @@
+/*
+API ENDPOINT FOR OFFERING TABLE
+Holds:
+offering
+-- offering_level (foreign key)
+-- enrollment (foreign key)
+*/
+
 const { PrismaClient } = require("@prisma/client");
 const prisma = new PrismaClient();
 
