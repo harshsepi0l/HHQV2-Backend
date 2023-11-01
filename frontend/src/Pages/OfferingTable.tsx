@@ -15,6 +15,12 @@ type OfferingLevel = {
   level_id: string;
 };
 
+type Enrollment = {
+  offering_id: string;
+  student_id: string;
+  grade: string;
+}
+
 type Offering = {
   offering_id: string;
   course_id: string;
@@ -32,6 +38,7 @@ type Offering = {
   building: string;
   room: string;
   offering_level: OfferingLevel[]; //this line is to invoke a link to the other table.
+  enrollment: Enrollment[]; //this line is to invoke a link to the other table.
   // ... other fields
 };
 
@@ -148,6 +155,9 @@ const OfferingTable: React.FC = () => {
                 <th style={{ width: "10%", backgroundColor: "black" }}>
                   Level ID (FQ)
                 </th>
+                <th style={{ width: "10%", backgroundColor: "black" }}>
+                  Enrollment
+                </th>
                 {/* ... other headers */}
               </tr>
             </thead>
@@ -172,6 +182,11 @@ const OfferingTable: React.FC = () => {
                   <td>
                     {offering.offering_level.map((level) => (
                       <tr key={level.level_id}>{level.level_id}</tr> // Display each level_id from reference
+                    ))}
+                  </td>
+                  <td>
+                    {offering.enrollment.map((enrollment) => (
+                      <tr key={enrollment.student_id}>{enrollment.student_id}</tr> // Display each student_id from reference
                     ))}
                   </td>
                 </tr>
