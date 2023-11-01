@@ -28,7 +28,7 @@ module.exports = async (req, res) => {
 
     res.json(departments);
   } catch (error) {
-    console.error("Error fetching courses:", error);
+    console.error("Error fetching departments:", error);
     res.status(500).json({ error: "Database error" });
   }
 };

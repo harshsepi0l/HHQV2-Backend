@@ -29,7 +29,7 @@ module.exports = async (req, res) => {
     });
     res.json(offerings);
   } catch (error) {
-    console.error("Error fetching students:", error);
+    console.error("Error fetching offerings:", error);
     res.status(500).json({ error: "Database error" });
   }
 };
