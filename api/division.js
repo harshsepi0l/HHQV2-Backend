@@ -1,7 +1,7 @@
 /*
-API ENDPOINT FOR SUBJECT TABLE
+API ENDPOINT FOR DIVISION TABLE
 Holds:
-subject
+division
 -- course (foreign key)
 */
 
@@ -20,15 +20,15 @@ module.exports = async (req, res) => {
   }
 
   try {
-    const subjects = await prisma.subject.findMany({
+    const divisions = await prisma.division.findMany({
       include: {
         course: true, //"Foreign Key" or reference we gave to the table
       },
     });
 
-    res.json(subjects);
+    res.json(divisions);
   } catch (error) {
-    console.error("Error fetching subjects:", error);
+    console.error("Error fetching division:", error);
     res.status(500).json({ error: "Database error" });
   }
 };
