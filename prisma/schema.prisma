@@ -9,35 +9,38 @@ datasource db {
 }
 
 model course {
-  course_id     String  @id @unique(map: "course_id_UNIQUE") @db.VarChar(50)
-  title         String? @db.VarChar(150)
-  credit_type   String? @db.VarChar(5)
-  description   String? @db.Text
-  subject_id    String? @db.VarChar(40)
-  number        String? @db.VarChar(20)
-  department_id String? @db.VarChar(40)
-  division_id   String? @db.VarChar(30)
+  course_id     String      @id @unique(map: "course_id_UNIQUE") @db.VarChar(50)
+  title         String?     @db.VarChar(150)
+  credit_type   String?     @db.VarChar(5)
+  description   String?     @db.Text
+  subject_id    String?     @db.VarChar(40)
+  number        String?     @db.VarChar(20)
+  department_id String?     @db.VarChar(40)
+  division_id   String?     @db.VarChar(30)
   offering      offering[]
   department    department? @relation(fields: [department_id], references: [department_id])
+
+  subject subject? @relation(fields: [subject_id], references: [subject_id])
+
+  division division? @relation(fields: [division_id], references: [division_id])
+
   @@index([department_id])
-  subject       subject?    @relation(fields: [subject_id], references: [subject_id])
   @@index([subject_id])
-  division      division?   @relation(fields: [division_id], references: [division_id])
   @@index([division_id])
 }
 
 /// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
 model department {
-  department_id String  @id @unique(map: "department_id_UNIQUE") @db.VarChar(10)
-  description   String? @db.VarChar(45)
-  course       course[]
+  department_id String   @id @unique(map: "department_id_UNIQUE") @db.VarChar(10)
+  description   String?  @db.VarChar(45)
+  course        course[]
 }
 
 model enrollment {
-  offering_id String  @db.VarChar(20)
-  student_id  String  @db.VarChar(20)
-  grade       String? @db.VarChar(45)
-  student     student @relation(fields: [student_id], references: [student_id])
+  offering_id String    @db.VarChar(20)
+  student_id  String    @db.VarChar(20)
+  grade       String?   @db.VarChar(45)
+  student     student   @relation(fields: [student_id], references: [student_id])
   offering    offering? @relation(fields: [offering_id], references: [offering_id])
 
   @@id([offering_id, student_id])
@@ -47,8 +50,8 @@ model enrollment {
 
 /// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
 model level {
-  level_id    String  @id @unique(map: "level_id_UNIQUE") @db.VarChar(10)
-  description String? @db.VarChar(45)
+  level_id       String           @id @unique(map: "level_id_UNIQUE") @db.VarChar(10)
+  description    String?          @db.VarChar(45)
   offering_level offering_level[]
 }
 
@@ -72,9 +75,10 @@ model offering {
   offering_level  offering_level[]
   course          course?          @relation(fields: [course_id], references: [course_id])
   term            term?            @relation(fields: [term_id], references: [term_id])
+  enrollment      enrollment[]
+
   @@index([course_id])
   @@index([term_id])
-  enrollment     enrollment[]
 }
 
 model offering_level {
@@ -89,29 +93,29 @@ model offering_level {
 }
 
 model student {
-  student_id String  @id @unique(map: "student_id_UNIQUE") @db.VarChar(20)
-  name       String? @db.VarChar(50)
-  year       String? @db.VarChar(45)
-  transfer   String? @db.VarChar(1)
+  student_id String       @id @unique(map: "student_id_UNIQUE") @db.VarChar(20)
+  name       String?      @db.VarChar(50)
+  year       String?      @db.VarChar(45)
+  transfer   String?      @db.VarChar(1)
   enrollment enrollment[]
 }
 
 /// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
 model subject {
-  subject_id  String  @id @unique(map: "subject_id_UNIQUE") @db.VarChar(10)
-  description String? @db.VarChar(45)
+  subject_id  String   @id @unique(map: "subject_id_UNIQUE") @db.VarChar(10)
+  description String?  @db.VarChar(45)
   course      course[]
 }
 
 model term {
-  term_id    String    @id @unique(map: "term_id_UNIQUE") @db.VarChar(8)
-  start_date DateTime? @db.Date
-  end_date   DateTime? @db.Date
+  term_id    String     @id @unique(map: "term_id_UNIQUE") @db.VarChar(8)
+  start_date DateTime?  @db.Date
+  end_date   DateTime?  @db.Date
   offering   offering[]
 }
 
 model division {
-  division_id String  @id @unique(map: "division_id_UNIQUE") @db.VarChar(10)
-  description String? @db.VarChar(50)
+  division_id String   @id @unique(map: "division_id_UNIQUE") @db.VarChar(10)
+  description String?  @db.VarChar(50)
   course      course[]
 }
