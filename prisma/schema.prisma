@@ -65,7 +65,6 @@ model offering_level {
   offering    offering @relation(fields: [offering_id], references: [offering_id])
 
   @@id([offering_id, level_id])
-  @@index([offering_id])
 }
 
 model student {
