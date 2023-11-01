@@ -63,7 +63,6 @@ model offering_level {
   level_id    String @db.VarChar(10)
 
   @@id([offering_id, level_id])
-  @@index([offering_id])
 }
 
 model student {
