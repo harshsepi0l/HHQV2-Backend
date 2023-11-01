@@ -1,8 +1,8 @@
 /*
-API ENDPOINT FOR TERM TABLE
+API ENDPOINT FOR LEVEL  TABLE
 Holds:
-term
--- offering (foreign key)
+level
+-- enrollment (foreign key)
 */
 
 const { PrismaClient } = require("@prisma/client");
@@ -20,15 +20,15 @@ module.exports = async (req, res) => {
   }
 
   try {
-    const terms = await prisma.term.findMany({
+    const levels = await prisma.level.findMany({
       include: {
-        offering: true, //"Foreign Key" or reference we gave to the table
+        enrollment: true, //"Foreign Key" or reference we gave to the table
       },
     });
 
-    res.json(terms);
+    res.json(levels);
   } catch (error) {
-    console.error("Error fetching terms:", error);
+    console.error("Error fetching levels:", error);
     res.status(500).json({ error: "Database error" });
   }
 };
