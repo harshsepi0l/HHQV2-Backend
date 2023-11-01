@@ -1,4 +1,4 @@
-// CourseTable.tsx
+// OfferingTable.tsx
 
 //For design
 import Table from "@mui/joy/Table";
