@@ -20,7 +20,11 @@ module.exports = async (req, res) => {
   }
 
   try {
-    const departments = await prisma.department.findMany({});
+    const departments = await prisma.department.findMany({
+      include: {
+        course: true, //"Foreign Key" or reference we gave to the table
+      },
+    });
 
     res.json(departments);
   } catch (error) {
