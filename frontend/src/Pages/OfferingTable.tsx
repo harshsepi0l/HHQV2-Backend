@@ -1,4 +1,4 @@
-// CourseTable.tsx
+// OfferingTable.tsx
 
 //For design
 import Table from "@mui/joy/Table";
@@ -108,7 +108,7 @@ const OfferingTable: React.FC = () => {
                 <th style={{ width: "5%", backgroundColor: "black" }}>
                   Course ID
                 </th>
-                <th style={{ width: "15%", backgroundColor: "black" }}>
+                <th style={{ width: "10%", backgroundColor: "black" }}>
                   Comments
                 </th>
                 <th style={{ width: "3%", backgroundColor: "black" }}>
@@ -145,7 +145,7 @@ const OfferingTable: React.FC = () => {
                   Building
                 </th>
                 <th style={{ width: "5%", backgroundColor: "black" }}>Room</th>
-                <th style={{ width: "5%", backgroundColor: "black" }}>
+                <th style={{ width: "10%", backgroundColor: "black" }}>
                   Level ID (FQ)
                 </th>
                 {/* ... other headers */}
