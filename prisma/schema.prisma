@@ -35,13 +35,13 @@ model course {
   description   String?    @db.Text
   subject_id    String?    @db.VarChar(40)
   number        String?    @db.VarChar(20)
-  department_id String    @db.VarChar(40)
+  department_id String     @db.VarChar(40)
   division_id   String?    @db.VarChar(30)
   offering      offering[]
 
-  subject    subject?    @relation(fields: [subject_id], references: [subject_id])
+  subject    subject?   @relation(fields: [subject_id], references: [subject_id])
   department department @relation(fields: [department_id], references: [department_id])
-  division   division?   @relation(fields: [division_id], references: [division_id])
+  division   division?  @relation(fields: [division_id], references: [division_id])
 
   @@index([department_id])
   @@index([subject_id])
