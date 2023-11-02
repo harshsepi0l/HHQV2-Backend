@@ -20,15 +20,11 @@ module.exports = async (req, res) => {
   }
 
   try {
-    const departments = await prisma.department.findMany({
-      include: {
-        course: true, //"Foreign Key" or reference we gave to the table
-      },
-    });
+    const departments = await prisma.department.findMany({});
 
     res.json(departments);
   } catch (error) {
-    console.error("Error fetching departments:", error);
+    console.error("Error fetching division:", error);
     res.status(500).json({ error: "Database error" });
   }
 };
