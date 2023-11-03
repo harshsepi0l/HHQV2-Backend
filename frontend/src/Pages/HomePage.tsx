@@ -27,6 +27,9 @@ const HomePage: React.FC = () => {
           <Button variant="soft" component="a" href="/offerings">
             Offerings
           </Button>
+          <Button variant="soft" component="a" href="/offerings">
+            Offerings
+          </Button>
         </Divider>
       </div>
     </div>
