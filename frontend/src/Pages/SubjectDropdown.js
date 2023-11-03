@@ -11,7 +11,7 @@ export function SubjectDropdown() {
         const response = await axios.get(
           "https://hhqv2backend.vercel.app/api/subject"
         );
-        setSubjects(response.data); // Assuming this is an array of subjects with a course array
+        setSubjects(response.data); // Subjects Array with Course Array (FK)
       } catch (error) {
         console.error("Failed to fetch subjects:", error);
       }
