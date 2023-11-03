@@ -24,6 +24,12 @@ export function SubjectDropdown() {
   const addDropdown = () => {
     setSelectedSubjects([...selectedSubjects, ""]); // Add a new selection entry
   };
+  const removeDropdown = () => {
+    // Function to handle removing the last dropdown
+    const updatedSelectedSubjects = [...selectedSubjects];
+    updatedSelectedSubjects.pop(); // Remove the last selection entry
+    setSelectedSubjects(updatedSelectedSubjects);
+  };
 
   // Function to handle selecting a course in a specific dropdown
   const handleSubjectChange = (event, index) => {
@@ -53,6 +59,7 @@ export function SubjectDropdown() {
         </div>
       ))}
       <button onClick={addDropdown}>+ Add More...</button>
+      <button onClick={removeDropdown}>- Remove Last</button>
     </div>
   );
 }
