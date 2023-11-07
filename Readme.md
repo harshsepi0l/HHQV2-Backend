@@ -1,7 +1,7 @@
 
 # Backend for Hornet HQ Version.2 (Prototype)
 
-This is a prototype version of [HornetHQ](https://hornethq.kzoo.edu/Student/Account/Login?ReturnUrl=/Student/) being developed for Kalamazoo College. This repository serves as a backbone of the backend of the project, with seamless serverless functions and deployed a MySQL database.
+This is a prototype version of [HornetHQ](https://hornethq.kzoo.edu/Student/Account/Login?ReturnUrl=/Student/) being developed for Kalamazoo College. This repository serves as a backbone for the backend of the project, with seamless serverless functions and deployed a MySQL database.
 
 ***please ask one of the Backend Members before changing anything***
 
