@@ -30,6 +30,9 @@ const HomePage: React.FC = () => {
           <Button variant="soft" component="a" href="/dropdown">
             Dropdown
           </Button>
+          <Button variant="soft" component="a" href="/sidebar">
+            sidebar
+          </Button>
         </Divider>
       </div>
     </div>
