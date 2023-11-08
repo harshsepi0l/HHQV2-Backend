@@ -1,6 +1,7 @@
 import React from "react";
 import Button from "@mui/joy/Button";
 import Divider from "@mui/joy/Divider";
+import Calendar from "../Components/Calendar/Calendar";
 
 const HomePage: React.FC = () => {
   return (
@@ -14,6 +15,7 @@ const HomePage: React.FC = () => {
         gap: "20px", // space between elements
       }}
     >
+      <Calendar />
       <h1>Hello</h1>
       <h2>Click on one of the buttons to see how the pages are set up</h2>
       <div>
