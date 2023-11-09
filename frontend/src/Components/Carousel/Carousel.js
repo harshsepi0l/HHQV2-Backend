@@ -14,7 +14,7 @@ const Carousel = () => {
         const response = await axios.get(
           "https://hhqv2backend.vercel.app/api/course"
         );
-        setCarouselData(response.data); // Assuming the API returns an array of courses
+        setCarouselData(response.data);
       } catch (error) {
         console.error("Error fetching carousel data:", error);
       }
