@@ -35,6 +35,9 @@ const HomePage: React.FC = () => {
           <Button variant="soft" component="a" href="/sidebar">
             sidebar
           </Button>
+          <Button variant="soft" component="a" href="/carousel">
+            Carousel
+          </Button>
         </Divider>
       </div>
     </div>
