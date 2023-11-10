@@ -9,7 +9,7 @@ const Carousel = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
 
   // Define the list of course IDs (specific ids from the api)
-  const desiredCourseIds = ["AFST-104", "AFST-273", "AFST-276"]; // Replace with actual course IDs that we want
+  const desiredCourseIds = ["HIST-230", "ENGL-153", "MUSC-105", "ENVS-115", "RELG-232"]; // Replace with actual course IDs that we want
 
   useEffect(() => {
     const fetchData = async () => {
@@ -78,7 +78,7 @@ const Carousel = () => {
         </div>
 
         <div className="info-container">
-          <h1 className="carousel-top">{carouselData[currentSlide].title}</h1>
+          <h1 className="carousel-top">{carouselData[currentSlide].course_id+": "+carouselData[currentSlide].title}</h1>
           <ul className="carousel-top">
             {carouselData[currentSlide].offering.map((offering, index) => (
               <li key={index}>{offering.faculty_name}</li>
