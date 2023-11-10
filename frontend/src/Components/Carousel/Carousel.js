@@ -8,13 +8,20 @@ const Carousel = () => {
   const [carouselData, setCarouselData] = useState([]);
   const [currentSlide, setCurrentSlide] = useState(0);
 
+  // Define the list of course IDs (specific ids from the api)
+  const desiredCourseIds = ["AFST-104", "AFST-273", "AFST-276"]; // Replace with actual course IDs that we want
+
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
           "https://hhqv2backend.vercel.app/api/course"
         );
-        setCarouselData(response.data);
+        // Filter the response to include only the courses with desired IDs
+        const filteredData = response.data.filter((course) =>
+          desiredCourseIds.includes(course.course_id)
+        );
+        setCarouselData(filteredData);
       } catch (error) {
         console.error("Error fetching carousel data:", error);
       }
