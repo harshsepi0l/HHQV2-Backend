@@ -23,7 +23,7 @@ module.exports = async (req, res) => {
   if (req.method === "POST") {
     try {
       // Parse the incoming data
-      const studentData = JSON.parse(req.body);
+      const studentData = req.body; // Instead of JSON.parse(req.body)
 
       // Add validation if necessary
 
