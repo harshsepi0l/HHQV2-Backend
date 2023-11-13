@@ -15,7 +15,6 @@ const HomePage: React.FC = () => {
         gap: "20px", // space between elements
       }}
     >
-      <Calendar />
       <h1>Hello</h1>
       <h2>Click on one of the buttons to see how the pages are set up</h2>
       <div>
@@ -40,6 +39,9 @@ const HomePage: React.FC = () => {
           </Button>
           <Button variant="soft" component="a" href="/registration">
             Registration
+          </Button>
+          <Button variant="soft" component="a" href="/login">
+            Login
           </Button>
         </Divider>
       </div>
