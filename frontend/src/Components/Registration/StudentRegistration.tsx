@@ -155,7 +155,7 @@ const StudentRegistration: React.FC<StudentRegistrationProps> = ({
           fullWidth
         />
         <TextField
-          label="Transfer Student (Y/1)"
+          label="Transfer Student (Y/N)"
           name="transfer"
           value={student.transfer}
           onChange={handleChange}
