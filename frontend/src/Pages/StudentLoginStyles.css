@@ -34,8 +34,9 @@
 
 .bodyjank {
   height: 100vh;
+  width: 100vw;
   background-image: url(/src/beehive45.png), linear-gradient(#f76b20, #eabf75);
-  background-size: center;
+  background-size: "center";
 }
 
 .page {
