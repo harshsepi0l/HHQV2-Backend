@@ -11,6 +11,7 @@ import SnackbarContent from "@mui/material/SnackbarContent";
 import IconButton from "@mui/material/IconButton";
 import PeopleAltIcon from "@mui/icons-material/PeopleAlt";
 import ErrorIcon from "@mui/icons-material/Error";
+import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import CloseIcon from "@mui/icons-material/Close";
 
 type StudentData = {
@@ -24,15 +25,12 @@ interface StudentRegistrationProps {
   onRegister: (student: StudentData) => void;
 }
 
-// Define your theme (if customizing)
 const theme = createTheme({
   palette: {
-    // Define your palette here
     secondary: {
-      main: "#yourColor", // Replace with your desired color
+      main: "#yourColor",
     },
   },
-  // ...other theme customizations
 });
 
 const FormContainer = styled("form")(({ theme }) => ({
@@ -68,6 +66,7 @@ const StudentRegistration: React.FC<StudentRegistrationProps> = ({
   });
 
   const [error, setError] = useState<string | null>(null);
+  const [successMessage, setSuccessMessage] = useState<string | null>(null);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setStudent({ ...student, [e.target.name]: e.target.value });
@@ -76,13 +75,11 @@ const StudentRegistration: React.FC<StudentRegistrationProps> = ({
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    // Check if student ID is provided
     if (!student.student_id) {
       setError("Student ID is required");
       return;
     }
 
-    // Prepare the data to be sent
     const payload = {
       student_id: student.student_id,
       name: student.name,
@@ -90,7 +87,6 @@ const StudentRegistration: React.FC<StudentRegistrationProps> = ({
       transfer: student.transfer,
     };
 
-    // API endpoint
     const apiEndpoint = "https://hhqv2backend.vercel.app/api/student";
 
     try {
@@ -106,108 +102,108 @@ const StudentRegistration: React.FC<StudentRegistrationProps> = ({
         throw new Error(`Error: ${response.status}`);
       }
 
-      const responseData = await response.json();
-      console.log("Success:", responseData);
-      console.log("Payload being sent:", payload); // Log the payload
-
-      // Handle success - perform actions after successful registration
+      await response.json();
+      setSuccessMessage('Registration successful!');
       setError(null);
       onRegister(student);
     } catch (error) {
       console.error("Error during API call:", error);
       setError("Failed to register student");
+      setSuccessMessage(null);
     }
   };
 
   const handleCloseSnackbar = () => {
     setError(null);
+    setSuccessMessage(null);
   };
 
   return (
-    <StyledPaper>
-      <StyledAvatar>
-        <PeopleAltIcon />
-      </StyledAvatar>
-      <Typography component="h1" variant="h5">
-        Student Registration
-      </Typography>
-      <FormContainer onSubmit={handleSubmit}>
-        <TextField
-          label="Student ID"
-          name="student_id"
-          value={student.student_id}
-          onChange={handleChange}
-          required
-          fullWidth
-        />
-        <TextField
-          label="Name"
-          name="name"
-          value={student.name}
-          onChange={handleChange}
-          fullWidth
-        />
-        <TextField
-          label="Graduation Year"
-          name="year"
-          value={student.year}
-          onChange={handleChange}
-          fullWidth
-        />
-        <TextField
-          label="Transfer Student (Y/N)"
-          name="transfer"
-          value={student.transfer}
-          onChange={handleChange}
-          fullWidth
-          inputProps={{ maxLength: 1 }}
-        />
-        <Button
-          type="submit"
-          color="primary"
-          variant="contained"
-          fullWidth
-          sx={{ mt: 2 }}
-        >
-          Register
-        </Button>
-      </FormContainer>
-      <Snackbar
-        open={!!error}
-        autoHideDuration={6000}
-        onClose={handleCloseSnackbar}
-      >
-        <SnackbarContent
-          message={
-            <div style={{ display: "flex", alignItems: "center" }}>
-              <ErrorIcon style={{ marginRight: "8px" }} color="error" />
-              {error}
-            </div>
-          }
-          action={
-            <IconButton
-              size="small"
-              aria-label="close"
-              color="inherit"
-              onClick={handleCloseSnackbar}
-            >
-              <CloseIcon fontSize="small" />
-            </IconButton>
-          }
-        />
-      </Snackbar>
-    </StyledPaper>
-  );
-};
-
-const ThemedStudentRegistration: React.FC<StudentRegistrationProps> = (
-  props
-) => {
-  return (
     <ThemeProvider theme={theme}>
-      <StudentRegistration {...props} />
+      <StyledPaper>
+        <StyledAvatar>
+          <PeopleAltIcon />
+        </StyledAvatar>
+        <Typography component="h1" variant="h5">
+          Student Registration
+        </Typography>
+        <FormContainer onSubmit={handleSubmit}>
+          <TextField
+            label="Student ID"
+            name="student_id"
+            value={student.student_id}
+            onChange={handleChange}
+            required
+            fullWidth
+          />
+          <TextField
+            label="Name"
+            name="name"
+            value={student.name}
+            onChange={handleChange}
+            fullWidth
+          />
+          <TextField
+            label="Graduation Year"
+            name="year"
+            value={student.year}
+            onChange={handleChange}
+            fullWidth
+          />
+          <TextField
+            label="Transfer Student (Y/N)"
+            name="transfer"
+            value={student.transfer}
+            onChange={handleChange}
+            fullWidth
+            inputProps={{ maxLength: 1 }}
+          />
+          <Button
+            type="submit"
+            color="primary"
+            variant="contained"
+            fullWidth
+            sx={{ mt: 2 }}
+          >
+            Register
+          </Button>
+        </FormContainer>
+        <Snackbar
+          open={!!error || !!successMessage}
+          autoHideDuration={6000}
+          onClose={handleCloseSnackbar}
+        >
+          <SnackbarContent
+            message={
+              <div style={{ display: "flex", alignItems: "center" }}>
+                {error ? (
+                  <>
+                    <ErrorIcon style={{ marginRight: "8px" }} color="error" />
+                    {error}
+                  </>
+                ) : (
+                  <>
+                    <CheckCircleIcon style={{ marginRight: "8px" }} color="success" />
+                    {successMessage}
+                  </>
+                )}
+              </div>
+            }
+            action={
+              <IconButton
+                size="small"
+                aria-label="close"
+                color="inherit"
+                onClick={handleCloseSnackbar}
+              >
+                <CloseIcon fontSize="small" />
+              </IconButton>
+            }
+          />
+        </Snackbar>
+      </StyledPaper>
     </ThemeProvider>
   );
 };
 
-export default ThemedStudentRegistration;
+export default StudentRegistration;
