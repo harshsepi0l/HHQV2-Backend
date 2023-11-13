@@ -9,12 +9,10 @@ import Avatar from "@mui/material/Avatar";
 import Snackbar from "@mui/material/Snackbar";
 import SnackbarContent from "@mui/material/SnackbarContent";
 import IconButton from "@mui/material/IconButton";
-import PeopleAltIcon from "@mui/icons-material/PeopleAlt";
 import ErrorIcon from "@mui/icons-material/Error";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import CloseIcon from "@mui/icons-material/Close";
 import KColorImage from "../images/KColor.png";
-import { PaletteOptions } from "@mui/material/styles/createPalette";
 
 type StudentData = {
   student_id: string;
