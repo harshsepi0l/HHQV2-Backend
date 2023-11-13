@@ -14,6 +14,7 @@ import ErrorIcon from "@mui/icons-material/Error";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import CloseIcon from "@mui/icons-material/Close";
 import KColorImage from "../images/KColor.png";
+import { PaletteOptions } from "@mui/material/styles/createPalette";
 
 type StudentData = {
   student_id: string;
@@ -28,11 +29,28 @@ interface StudentRegistrationProps {
 
 const theme = createTheme({
   palette: {
+    primary: {
+      main: "#ff5722",
+    },
     secondary: {
-      main: "#yourColor",
+      main: "#ff5722",
+    },
+    deepOrange: {
+      main: "#ff5722",
     },
   },
 });
+
+declare module "@mui/material/styles/createPalette" {
+  interface PaletteOptions {
+    deepOrange?: PaletteOptions["primary"];
+  }
+}
+declare module "@mui/material/Button" {
+  interface ButtonPropsColorOverrides {
+    deepOrange?: true;
+  }
+}
 
 const FormContainer = styled("form")(({ theme }) => ({
   display: "flex",
@@ -168,7 +186,7 @@ const StudentRegistration: React.FC<StudentRegistrationProps> = ({
           />
           <Button
             type="submit"
-            color="primary"
+            color="deepOrange"
             variant="contained"
             fullWidth
             sx={{ mt: 2 }}
