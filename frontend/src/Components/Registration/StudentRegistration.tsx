@@ -13,6 +13,7 @@ import PeopleAltIcon from "@mui/icons-material/PeopleAlt";
 import ErrorIcon from "@mui/icons-material/Error";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import CloseIcon from "@mui/icons-material/Close";
+import KColorImage from "../images/KColor.png";
 
 type StudentData = {
   student_id: string;
@@ -103,7 +104,7 @@ const StudentRegistration: React.FC<StudentRegistrationProps> = ({
       }
 
       await response.json();
-      setSuccessMessage('Registration successful!');
+      setSuccessMessage("Registration successful!");
       setError(null);
       onRegister(student);
     } catch (error) {
@@ -122,7 +123,14 @@ const StudentRegistration: React.FC<StudentRegistrationProps> = ({
     <ThemeProvider theme={theme}>
       <StyledPaper>
         <StyledAvatar>
-          <PeopleAltIcon />
+          <img
+            src={KColorImage}
+            alt="K Color"
+            style={{
+              width: "25px",
+              height: "25px",
+            }}
+          />
         </StyledAvatar>
         <Typography component="h1" variant="h5">
           Student Registration
@@ -183,7 +191,10 @@ const StudentRegistration: React.FC<StudentRegistrationProps> = ({
                   </>
                 ) : (
                   <>
-                    <CheckCircleIcon style={{ marginRight: "8px" }} color="success" />
+                    <CheckCircleIcon
+                      style={{ marginRight: "8px" }}
+                      color="success"
+                    />
                     {successMessage}
                   </>
                 )}
