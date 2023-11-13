@@ -24,7 +24,8 @@ module.exports = async (req, res) => {
     try {
       // Parse the incoming data
       const studentData = req.body; // Instead of JSON.parse(req.body)
-
+      //For Yes or No:
+      studentData.transfer = studentData.transfer === "Y" ? 1 : 0;
       // Add validation if necessary
 
       // Create a new student in the database
