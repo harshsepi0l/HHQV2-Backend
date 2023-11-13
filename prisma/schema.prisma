@@ -102,7 +102,7 @@ model student {
   student_id String       @id @unique(map: "student_id_UNIQUE") @db.VarChar(20)
   name       String?      @db.VarChar(50)
   year       String?      @db.VarChar(45)
-  transfer   String?      @db.VarChar(1)
+  transfer   Int?         @db.Int
   enrollment enrollment[]
 }
 
