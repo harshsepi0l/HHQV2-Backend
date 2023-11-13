@@ -11,9 +11,11 @@ import StudentTable from "./Pages/StudentTable";
 import OfferingTable from "./Pages/OfferingTable";
 import SubjectDropdown from "./Pages/SubjectDropdown";
 import CarouselPage from "./Pages/CarouselPage";
+import RegistrationPage from "./Pages/RegistrationPage";
 
 import { BrowserRouter as Router, Route, Link, Routes } from "react-router-dom";
 import { Dropdown } from "@mui/joy";
+import StudentRegistration from "./Components/Registration/StudentRegistration";
 
 function App() {
   return (
@@ -28,6 +30,7 @@ function App() {
             <Route path="/homepage" element={<HomePage />} />
             <Route path="/dropdown" element={<SubjectDropdown />} />
             <Route path="/carousel" element={<CarouselPage />} />
+            <Route path="/registration" element={<RegistrationPage />} />
           </Routes>
         </header>
       </div>
