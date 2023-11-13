@@ -1,0 +1,45 @@
+.container2 {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  background: #fff;
+  height: 400px;
+  width: 500px;
+}
+
+.Hornet-Title {
+  color: black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 9px;
+  width: 100%;
+  margin-top: 00px;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-size: 45px;
+}
+
+.form-input {
+  margin-top: 60px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
+  color: black;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-size: 20px;
+}
+
+.bodyjank {
+  height: 100vh;
+  background-image: url(/src/beehive45.png), linear-gradient(#f76b20, #eabf75);
+  background-size: center;
+}
+
+.page {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}

@@ -13,6 +13,7 @@ import ErrorIcon from "@mui/icons-material/Error";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import CloseIcon from "@mui/icons-material/Close";
 import KColorImage from "../images/KColor.png";
+import StudentLoginStyles from "../Login/StudentLoginStyles.css";
 
 const theme = createTheme({
   palette: {
@@ -103,73 +104,75 @@ const StudentLogin = () => {
 
   return (
     <ThemeProvider theme={theme}>
-      <StyledPaper>
-        <StyledAvatar>
-          <img
-            src={KColorImage}
-            alt="K Color"
-            style={{ width: "25px", height: "25px" }}
-          />
-        </StyledAvatar>
-        <Typography component="h1" variant="h5">
-          Student Login
-        </Typography>
-        <FormContainer onSubmit={handleLogin}>
-          <TextField
-            label="Student ID"
-            name="student_id"
-            value={studentId}
-            onChange={handleChange}
-            required
-            fullWidth
-          />
-          <Button
-            type="submit"
-            color="primary"
-            variant="contained"
-            fullWidth
-            sx={{ mt: 2 }}
+      <div className="bodyjank">
+        <StyledPaper>
+          <StyledAvatar>
+            <img
+              src={KColorImage}
+              alt="K Color"
+              style={{ width: "25px", height: "25px" }}
+            />
+          </StyledAvatar>
+          <Typography component="h1" variant="h5">
+            Student Login
+          </Typography>
+          <FormContainer onSubmit={handleLogin}>
+            <TextField
+              label="Student ID"
+              name="student_id"
+              value={studentId}
+              onChange={handleChange}
+              required
+              fullWidth
+            />
+            <Button
+              type="submit"
+              color="primary"
+              variant="contained"
+              fullWidth
+              sx={{ mt: 2 }}
+            >
+              Login
+            </Button>
+          </FormContainer>
+          <Snackbar
+            open={!!loginError || !!successMessage}
+            autoHideDuration={6000}
+            onClose={handleCloseSnackbar}
           >
-            Login
-          </Button>
-        </FormContainer>
-        <Snackbar
-          open={!!loginError || !!successMessage}
-          autoHideDuration={6000}
-          onClose={handleCloseSnackbar}
-        >
-          <SnackbarContent
-            message={
-              <div style={{ display: "flex", alignItems: "center" }}>
-                {loginError ? (
-                  <>
-                    <ErrorIcon style={{ marginRight: "8px" }} color="error" />
-                    {loginError}
-                  </>
-                ) : (
-                  <>
-                    <CheckCircleIcon
-                      style={{ marginRight: "8px" }}
-                      color="success"
-                    />
-                    {successMessage}
-                  </>
-                )}
-              </div>
-            }
-            action={
-              <IconButton
-                size="small"
-                aria-label="close"
-                color="inherit"
-                onClick={handleCloseSnackbar}
-              >
-                <CloseIcon fontSize="small" />
-              </IconButton>
-            }
-          />
-        </Snackbar>
-      </StyledPaper>
+            <SnackbarContent
+              message={
+                <div style={{ display: "flex", alignItems: "center" }}>
+                  {loginError ? (
+                    <>
+                      <ErrorIcon style={{ marginRight: "8px" }} color="error" />
+                      {loginError}
+                    </>
+                  ) : (
+                    <>
+                      <CheckCircleIcon
+                        style={{ marginRight: "8px" }}
+                        color="success"
+                      />
+                      {successMessage}
+                    </>
+                  )}
+                </div>
+              }
+              action={
+                <IconButton
+                  size="small"
+                  aria-label="close"
+                  color="inherit"
+                  onClick={handleCloseSnackbar}
+                >
+                  <CloseIcon fontSize="small" />
+                </IconButton>
+              }
+            />
+          </Snackbar>
+        </StyledPaper>
+      </div>
     </ThemeProvider>
   );
 };
