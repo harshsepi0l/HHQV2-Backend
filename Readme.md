@@ -1,18 +1,27 @@
 
 
+
 # Backend for Hornet HQ Version.2 (Prototype)
 
-This is a prototype version of [HornetHQ](https://hornethq.kzoo.edu/Student/Account/Login?ReturnUrl=/Student/) being developed for Kalamazoo College. This repository serves as a backbone for the backend of the project, with seamless serverless functions with and deployed a MySQL database on PlanetScale.
+This is a prototype version of [HornetHQ](https://hornethq.kzoo.edu/Student/Account/Login?ReturnUrl=/Student/) being developed for Kalamazoo College. This repository serves as a backbone for the backend of the project, with seamless serverless functions with and deployed a MySQL database on PlanetScale with Prisma as the ORM, connecting the two together.
+
+**Documentation for all the frameworks used:**
+  - [PlanetScale Docs](https://planetscale.com/docs)
+   - [Vercel Docs](https://vercel.com/docs/functions/serverless-functions/runtimes/node-js)
+   - [Prisma Docs](https://www.prisma.io/docs/guides/database/planetscale)
+
 
     Backend Implemented:
     /Backend
     ├── /Backend
+    |	|── Prisma ── Schema.prima, ...
+    |	|
     │   ├── package.json
     │   ├── api —— index.js, ….js (Vercel)
     │   └── ...
     
-	Frontend Expectation:
-	/Frontend
+    Frontend Expectation:
+    /Frontend
     ├── /Frontend —> Connection
     │   ├── package.json
     │   ├── src
