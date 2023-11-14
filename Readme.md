@@ -3,7 +3,7 @@
 
 # Backend for Hornet HQ Version.2 (Prototype)
 
-This is a prototype version of [HornetHQ](https://hornethq.kzoo.edu/Student/Account/Login?ReturnUrl=/Student/) being developed for Kalamazoo College. This repository serves as a backbone for the backend of the project, with seamless serverless functions with and deployed a MySQL database on PlanetScale with Prisma as the ORM, connecting the two together.
+This is a prototype version of [HornetHQ](https://hornethq.kzoo.edu/Student/Account/Login?ReturnUrl=/Student/) being developed for Kalamazoo College. This repository serves as a backbone for the backend of the project, with seamless serverless functions with Vercel and deployed a MySQL database on PlanetScale with Prisma as the ORM, connecting the two together.
 
 **Documentation for all the frameworks used:**
   - [PlanetScale Docs](https://planetscale.com/docs)
