@@ -4,15 +4,19 @@
 
 This is a prototype version of [HornetHQ](https://hornethq.kzoo.edu/Student/Account/Login?ReturnUrl=/Student/) being developed for Kalamazoo College. This repository serves as a backbone for the backend of the project, with seamless serverless functions with and deployed a MySQL database on PlanetScale.
 
-/Backend
-├── /backend
-│   ├── package.json
-│   ├── api —— index.js, ….js (Vercel)
-│   └── ...
-├── /frontend —> Connection
-│   ├── package.json
-│   ├── src
-│   └── ...
+    Backend Implemented:
+    /Backend
+    ├── /Backend
+    │   ├── package.json
+    │   ├── api —— index.js, ….js (Vercel)
+    │   └── ...
+    
+	Frontend Expectation:
+	/Frontend
+    ├── /Frontend —> Connection
+    │   ├── package.json
+    │   ├── src
+    │   └── ...
 
 This is how the project is setup and the frontend branch is managed by a different group of students. Here is the Repository for the frontend branch - [Frontend](https://github.com/RochX/hornethq-2.0-integrated)
 
