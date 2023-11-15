@@ -14,7 +14,7 @@ This is a prototype version of [HornetHQ](https://hornethq.kzoo.edu/Student/Acco
     Backend Implemented:
     /Backend
     ├── /Backend
-    |	|── Prisma ── Schema.prima, ...
+    |	|── Prisma ── Schema.prisma, ...
     |	|
     │   ├── package.json
     │   ├── api —— index.js, ….js (Vercel)
